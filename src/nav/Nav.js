@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import AppBar from '@material-ui/core/AppBar'
 
 const Nav = props => {
   const handleLogout = e => {
@@ -39,12 +40,14 @@ const Nav = props => {
 
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {links}
-      </ul>
+      <AppBar position="static">
+          <ul>
+            <li>
+            <Link to="/">Home</Link>
+            </li>
+            {links}
+          </ul>
+      </AppBar>
     </nav>
   )
 }

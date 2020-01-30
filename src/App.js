@@ -4,10 +4,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 
 // Resources and custom components
-import './App.css';
+//import './App.css';
 import Content from './content/Content'
 import Footer from './nav/Footer'
-import Header from './nav/Header'
 import Nav from './nav/Nav'
 
 const App = props => {
@@ -63,7 +62,6 @@ const App = props => {
     <Router>
       <div className="App">
         <Nav user={user} updateUser={updateUser} />
-        <Header />
         <main>
           <Content user={user} updateUser={updateUser} />
         </main>

@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
-import Signup from './pages/Signup'
+import Signup from './pages/signup2'
 
 const Content = props => {
   return (
