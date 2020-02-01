@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import { Container, Paper, Typography, Divider } from '@material-ui/core';
+
+
 
 const Profile = props => {
+
+  const style = {
+    container: {
+      backgroundColor: 'white',
+      textAlign: 'center',
+  }
+}
+
+
   // Declare and initialize state
   let [serverMessage, setServerMessage] = useState('')
   let [dogState, setDogState] = useState([])
@@ -74,19 +86,17 @@ const Profile = props => {
   })
 
   return (
-    <div>
+    <Container component="main" maxWidth="sm" style={style.container} >
+      <Typography color='primary' style={{fontFamily: 'Fredoka One', fontSize: '2em'}}>
       <h2>{props.user.firstname}'s Profile</h2>
       <h3>{props.user.firstname} {props.user.lastname}</h3>
-      <img alt="profile" src={props.user.profileUrl} />
-      <p>
-        <strong>Email:</strong>
-        {props.user.email}
-      </p>
-      <button onClick={callServer}>Call /profile route on server</button>
-      <p>{serverMessage}</p>
-      <button onClick={getDogs}>Show User's Dogs</button>
-      {dogs}
-    </div>
+      
+        <Divider variant="middle" />
+        <img className="custImg" alt="profile" src={props.user.profileUrl} />
+        <Divider variant="middle" />
+        <h4><strong>Email: </strong>{props.user.email}</h4>
+      </Typography>
+    </Container>
   )
 }
 

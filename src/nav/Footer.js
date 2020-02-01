@@ -1,24 +1,23 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import AppBar from '@material-ui/core/AppBar'
 
 const Footer = () => {
+  const style = {
+    height: '5vh',
+    display: 'flex',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '20px'
+  }
   return (
-    <footer style={{
-      height: '5vh', 
-      textAlign:'center', 
-      display: 'flex', 
-      justifyContent:'center',
-      alignItems: 'center',
-      margin: '40px 0 0 0',
-      backgroundColor: '#428e92',
-      color: '#fff'
-      }}>
-      <Typography>
-        <Box maxWidth="sm" fontWeight='fontWeightLight'>Created by Rebecca Evans 2020</Box>
-      </Typography>
-      
-    </footer>
+      <AppBar position='static' style={style}>
+        <Typography>
+          <Button maxWidth="sm" color='secondary'>CREATED BY REBECCA EVANS 2020</Button>
+        </Typography>
+      </AppBar>
   )
 }
 

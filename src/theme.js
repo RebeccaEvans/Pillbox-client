@@ -6,15 +6,19 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#428e92', 
-      main: '#006064',
+      main: '#007849',
       dark: '#00363a',
       contrastText: '#fff',
     },
     secondary: {
       light: '#ffff72', 
-      main: '#ffeb3b',
-      dark: 'c8b900',
+      main: '#46a875',
+      dark: '#c8b900',
       contrastText: '#000000',
+    },
+    background: {
+      paper: '#fafafa',
+      default: '#ffeb3b'
     },
     error: {
       main: red.A400,
@@ -23,6 +27,4 @@ const theme = createMuiTheme({
 });
 
 export default theme;
-
-
 

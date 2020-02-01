@@ -1,8 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import AppBar from '@material-ui/core/AppBar'
+import { makeStyles } from '@material-ui/core/styles';
+import { Link as RouterLink } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
+import { Typography, Avatar, Box, Button, Toolbar, AppBar, IconButton , Grid} from '@material-ui/core';
+
+
+// font-family: 'Fredoka One', cursive;
+// font-family: 'Satisfy', cursive;
+// font-family: 'Cantora One', sans-serif;
 
 const Nav = props => {
+
+  const style={
+    height: '10vh',
+    backgroundColor: '#fafafa',
+  }
+
   const handleLogout = e => {
     e.preventDefault()
     // Remove the token from localstorage (or cookies)
@@ -14,12 +27,8 @@ const Nav = props => {
 
   let links = (
     <span>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-      <li>
-        <Link to="/signup">Signup</Link>
-      </li>
+      <Button component={RouterLink} to="/login">LOGIN</Button>
+      <Button component={RouterLink} to="/signup">SIGNUP</Button>
     </span>
   )
 
@@ -27,28 +36,34 @@ const Nav = props => {
   if (props.user) {
     links = (
       <span>
-        <li>Hello {props.user.firstname}!</li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/" onClick={handleLogout}>Logout</Link>
-        </li>
+        <Button>Hello {props.user.firstname}!</Button>
+        <Button component={RouterLink} to="/profile">PROFILE</Button>
+        <Button component={RouterLink} to="/" onClick={handleLogout}>LOG OUT</Button>
       </span>
     )
   }
 
   return (
-    <nav>
-      <AppBar position="static">
-          <ul>
-            <li>
-            <Link to="/">Home</Link>
-            </li>
-            {links}
-          </ul>
+      <AppBar position="static" style={style}>
+        <Grid container spacing={3}>
+          <Grid item sm={6}>
+          <Toolbar>
+            <IconButton>
+                <Avatar src="/images/logo.png" style={{backgroundColor: '#007849'}}>picture</Avatar>
+              </IconButton>
+              <Typography color='primary' style={{fontFamily:'Fredoka One', fontSize: '2em'}}>PillBox</Typography>
+          </Toolbar>
+          </Grid>
+          <Grid item sm={6}>
+            <Toolbar style={{justifyContent: 'flex-end'}}>
+              {links}
+              <IconButton component={RouterLink} to="/">
+                <HomeIcon></HomeIcon>
+              </IconButton>
+            </Toolbar>
+          </Grid>
+          </Grid>
       </AppBar>
-    </nav>
   )
 }
 

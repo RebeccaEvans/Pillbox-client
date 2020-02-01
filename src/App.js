@@ -2,11 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
+import { Grid } from '@material-ui/core'
 
 // Resources and custom components
-//import './App.css';
 import Content from './content/Content'
-import Footer from './nav/Footer'
 import Nav from './nav/Nav'
 
 const App = props => {
@@ -60,13 +59,10 @@ const App = props => {
 
   return (
     <Router>
-      <div className="App">
-        <Nav user={user} updateUser={updateUser} />
-        <main>
-          <Content user={user} updateUser={updateUser} />
-        </main>
-        <Footer />
-      </div>
+      <Nav user={user} updateUser={updateUser} />
+      <Grid container spacing={3}>
+        <Content user={user} updateUser={updateUser} />
+      </Grid>
     </Router>
   )
 }
